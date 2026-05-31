@@ -629,3 +629,8 @@ body {
     transform: scale(0.95);
     background: #0f172a;
 }
+
+/* Estado cuando está escribiendo el correo: Las pupilas bajan y se centran */
+.avatar-face.watching .pupil {
+    transform: translateY(3px) scaleX(0.9);
+}

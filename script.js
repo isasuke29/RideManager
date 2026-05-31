@@ -190,3 +190,12 @@ formLogin.addEventListener('submit', (e) => {
         actualizarActiveNav('nav-inicio');
     }
 });
+
+const inputEmail = document.getElementById('login-email');
+
+inputEmail.addEventListener('focus', () => {
+    avatarCharacter.classList.add('watching');
+});
+inputEmail.addEventListener('blur', () => {
+    avatarCharacter.classList.remove('watching');
+});
