@@ -168,3 +168,25 @@ inputPassword.addEventListener('blur', () => {
     avatarCharacter.classList.remove('shy');
     avatarCharacter.classList.add('normal'); // Vuelve a la normalidad
 });
+
+// ==========================================================================
+// CONTROL DEL FORMULARIO DE LOGIN (SIMULACIÓN)
+// ==========================================================================
+const formLogin = document.getElementById('form-login');
+
+formLogin.addEventListener('submit', (e) => {
+    e.preventDefault(); // Evita que la página se recargue
+
+    const email = document.getElementById('login-email').value;
+    const contrasena = document.getElementById('login-password').value;
+
+    // Aquí puedes poner cualquier usuario de prueba
+    if (email !== "" && contrasena !== "") {
+        alert("¡Inicio de sesión exitoso! Bienvenido a RideManager.");
+        cerrarModales(); // Cierra la ventana del login
+        
+        // Opcional: Cambia el estado visual para mostrar que ya entraste
+        document.getElementById('btn-iniciar-sesion').innerText = "Panel Activo";
+        actualizarActiveNav('nav-inicio');
+    }
+});
