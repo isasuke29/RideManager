@@ -150,3 +150,21 @@ function actualizarActiveNav(idActivo) {
     document.querySelectorAll('.nav-link').forEach(link => link.classList.remove('active'));
     document.getElementById(idActivo).classList.add('active');
 }
+
+// ==========================================================================
+// ANIMACIÓN DEL MUÑECO DEL LOGIN (SE TAPA LOS OJOS)
+// ==========================================================================
+const inputPassword = document.getElementById('login-password');
+const avatarCharacter = document.getElementById('avatar-character');
+
+// Cuando el usuario hace clic o se enfoca en el campo de contraseña
+inputPassword.addEventListener('focus', () => {
+    avatarCharacter.classList.remove('normal');
+    avatarCharacter.classList.add('shy'); // Activa la animación de taparse
+});
+
+// Cuando el usuario hace clic fuera del campo de contraseña
+inputPassword.addEventListener('blur', () => {
+    avatarCharacter.classList.remove('shy');
+    avatarCharacter.classList.add('normal'); // Vuelve a la normalidad
+});

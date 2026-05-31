@@ -523,3 +523,109 @@ body {
         max-width: 340px; /* Para que en celular no se vea gigante */
     }
 }
+
+/* ==========================================================================
+   LOGIN INTERACTIVO: EL MUÑECO QUE SE TAPA LOS OJOS
+   ========================================================================== */
+.login-premium-theme {
+    text-align: center;
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+}
+
+.login-subtitle {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    margin-bottom: 1.5rem;
+}
+
+/* Contenedor del Personaje */
+.avatar-animation-container {
+    width: 100px;
+    height: 100px;
+    margin: 0 auto 1rem auto;
+    position: relative;
+    background: #f1f5f9;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    border: 2px solid #e2e8f0;
+}
+
+/* Cara Base del Muñeco (Estilo Robot Taller) */
+.avatar-face {
+    width: 60px;
+    height: 60px;
+    background: #1e293b; /* Color oscuro a juego con tu marca */
+    border-radius: 50%;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+/* Ojos */
+.avatar-eyes {
+    position: absolute;
+    top: 22px;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    padding: 0 10px;
+}
+
+.eye {
+    width: 12px;
+    height: 12px;
+    background: #ffffff;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.pupil {
+    width: 6px;
+    height: 6px;
+    background: #2563eb; /* Pupilas azules del color principal */
+    border-radius: 50%;
+    transition: all 0.2s ease;
+}
+
+/* Manos (Ocultas abajo por defecto) */
+.avatar-hands {
+    position: absolute;
+    width: 100%;
+    bottom: -12px;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 5px;
+    z-index: 10;
+}
+
+.hand {
+    width: 16px;
+    height: 16px;
+    background: #ff7a00; /* Color naranja a juego con el piñón de tu logo premium */
+    border-radius: 50%;
+    transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ==========================================================================
+   ESTADOS DE LA ANIMACIÓN (CONTROLADOS POR JAVASCRIPT)
+   ========================================================================== */
+
+/* Cuando escribe la contraseña: Las manos suben y tapan los ojos */
+.avatar-face.shy .hand.left-hand {
+    transform: translateY(-30px) translateX(8px) scale(1.2);
+}
+
+.avatar-face.shy .hand.right-hand {
+    transform: translateY(-30px) translateX(-8px) scale(1.2);
+}
+
+/* Pequeño cambio de inclinación en la cara al taparse */
+.avatar-face.shy {
+    transform: scale(0.95);
+    background: #0f172a;
+}
