@@ -348,3 +348,76 @@ body {
 }
 .btn-danger:hover { background-color: #dc2626; }
 .text-center { text-align: center; }
+
+/* ==========================================================================
+   ESTILOS PARA INTEGRACIÓN DE LOGO PREMIUM (SPLIT VIEW)
+   ========================================================================== */
+.hero-container-split {
+    display: flex;
+    max-width: 1200px;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+    gap: 4rem;
+    margin: 0 auto;
+}
+
+.hero-content-left {
+    flex: 1.2;
+    text-align: left;
+}
+
+.hero-content-left .action-container {
+    justify-content: flex-start;
+}
+
+.hero-image-right {
+    flex: 0.8;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Tarjeta estilizada que abraza el fondo negro del logo */
+.logo-premium-card {
+    background-color: #0b0f19; /* Azul casi negro a juego con el navbar */
+    padding: 1.5rem;
+    border-radius: 20px;
+    box-shadow: 0 25px 50px -12px rgba(15, 23, 42, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.4s ease;
+}
+
+.logo-premium-card:hover {
+    transform: translateY(-5px) scale(1.02); /* Efecto flotante al pasar el mouse */
+}
+
+.premium-logo-img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 12px;
+    display: block;
+}
+
+/* Ajuste para que se vea perfecto en teléfonos y pantallas pequeñas */
+@media (max-width: 900px) {
+    .hero-container-split {
+        flex-direction: column-reverse; /* El texto queda arriba y el logo abajo en celular */
+        text-align: center;
+        gap: 3rem;
+        padding-top: 2rem;
+    }
+    .hero-content-left {
+        text-align: center;
+    }
+    .hero-content-left .action-container {
+        justify-content: center;
+    }
+    .hero-image-right {
+        width: 100%;
+        max-width: 320px; /* Evita que el logo sea gigante en pantallas verticales */
+    }
+}
