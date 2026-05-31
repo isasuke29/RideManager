@@ -421,3 +421,105 @@ body {
         max-width: 320px; /* Evita que el logo sea gigante en pantallas verticales */
     }
 }
+
+/* ==========================================================================
+   OPTIMIZACIÓN DEL HERO: EVITAR ESPACIOS EN BLANCO (DISEÑO EN COLUMNAS)
+   ========================================================================== */
+.hero-section {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 3rem 2rem;
+    background: radial-gradient(circle at 50% 30%, #f8fafc 0%, #f1f5f9 100%);
+}
+
+/* Contenedor maestro que distribuye el espacio */
+.hero-container-split {
+    display: flex;
+    max-width: 1200px;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+    gap: 4rem; /* Espacio elegante entre el texto y la tarjeta */
+}
+
+/* Control del lado del texto */
+.hero-content-left {
+    flex: 1.2;
+    text-align: left; /* Alineado a la izquierda se ve mucho más corporativo */
+}
+
+.hero-content-left .hero-title {
+    font-size: 3rem;
+    font-weight: 800;
+    line-height: 1.15;
+    margin-bottom: 1.5rem;
+    color: #0f172a;
+}
+
+.hero-content-left .hero-description {
+    font-size: 1.2rem;
+    color: #475569;
+    margin-bottom: 2.5rem;
+}
+
+.hero-content-left .action-container {
+    justify-content: flex-start; /* Botón alineado al inicio del texto */
+}
+
+/* Control del lado derecho (Tarjeta del Logo) */
+.hero-image-right {
+    flex: 0.8;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Una tarjeta oscura que abraza el fondo negro del logo para que no parezca un parche */
+.logo-premium-card {
+    background-color: #000000; /* Fondo negro puro que unifica el logo */
+    padding: 1rem;
+    border-radius: 24px; /* Bordes redondeados modernos */
+    box-shadow: 0 25px 50px -12px rgba(15, 23, 42, 0.3); /* Sombra elegante */
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.logo-premium-card:hover {
+    transform: translateY(-5px); /* Efecto interactivo al pasar el mouse */
+}
+
+.premium-logo-img {
+    max-width: 100%;
+    height: auto;
+    max-height: 380px; /* Evita que el logo ocupe toda la pantalla hacia abajo */
+    border-radius: 14px;
+    display: block;
+}
+
+/* RESPONSIVO: Ajuste perfecto para celulares y tablets */
+@media (max-width: 900px) {
+    .hero-container-split {
+        flex-direction: column-reverse; /* En celular el texto va arriba y el logo abajo */
+        text-align: center;
+        gap: 2.5rem;
+    }
+    
+    .hero-content-left {
+        text-align: center;
+    }
+    
+    .hero-content-left .hero-title {
+        font-size: 2.25rem;
+    }
+    
+    .hero-content-left .action-container {
+        justify-content: center;
+    }
+    
+    .hero-image-right {
+        width: 100%;
+        max-width: 340px; /* Para que en celular no se vea gigante */
+    }
+}
