@@ -196,3 +196,155 @@ body {
         transform: translateY(0);
     }
 }
+
+/* ==========================================================================
+   ESTILOS DE MODALES Y COMPONENTES DE DATOS (FORMULARIOS Y TABLAS)
+   ========================================================================== */
+
+/* Fondo oscuro detrás del modal */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(15, 23, 42, 0.6); /* Azul oscuro transparente */
+    backdrop-filter: blur(4px); /* Efecto difuminado moderno */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
+/* Estado activo del modal */
+.modal-overlay.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/* Tarjeta del contenido del modal */
+.modal-card {
+    background-color: var(--white);
+    padding: 2.5rem;
+    border-radius: 12px;
+    width: 90%;
+    max-width: 480px;
+    position: relative;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    transform: translateY(-20px);
+    transition: transform 0.3s ease;
+}
+
+.modal-card.wide {
+    max-width: 800px; /* Más ancho para las tablas */
+}
+
+.modal-overlay.active .modal-card {
+    transform: translateY(0);
+}
+
+/* Botón cerrar (X) */
+.modal-close {
+    position: absolute;
+    top: 1rem;
+    right: 1.5rem;
+    background: none;
+    border: none;
+    font-size: 1.8rem;
+    color: var(--text-muted);
+    cursor: pointer;
+}
+
+.modal-close:hover {
+    color: var(--text-main);
+}
+
+/* Formularios */
+.app-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    margin-top: 1.5rem;
+}
+
+.app-form.horizontal {
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.app-form.horizontal input {
+    flex: 1;
+    min-width: 150px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.form-group label {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--text-main);
+}
+
+.app-form input, .app-form select {
+    padding: 0.75rem 1rem;
+    border: 1px solid #e2e8f0;
+    border-radius: 6px;
+    font-size: 0.95rem;
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+.app-form input:focus, .app-form select:focus {
+    border-color: var(--primary-blue);
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+.full-width {
+    width: 100%;
+}
+
+/* Tablas */
+.table-container {
+    margin-top: 1.5rem;
+    overflow-x: auto;
+    max-height: 300px;
+}
+
+.app-table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+    font-size: 0.95rem;
+}
+
+.app-table th {
+    background-color: #f1f5f9;
+    color: var(--text-main);
+    padding: 0.75rem 1rem;
+    font-weight: 600;
+    border-bottom: 2px solid #e2e8f0;
+}
+
+.app-table td {
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid #edf2f7;
+}
+
+.btn-danger {
+    background-color: #ef4444;
+    color: white;
+    border: none;
+    padding: 0.35rem 0.75rem;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.85rem;
+}
+.btn-danger:hover { background-color: #dc2626; }
+.text-center { text-align: center; }

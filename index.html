@@ -11,21 +11,20 @@
     <header class="main-header">
         <div class="header-container">
             <div class="logo-area">
-                <img src="logo.png" alt="Logo" class="logo-img" onerror="this.style.display='none'">
                 <span class="brand-name">RideManager</span>
             </div>
             <nav class="navigation-menu">
-                <a href="#inicio" class="nav-link active">Inicio</a>
-                <a href="#login" class="nav-link">Login</a>
-                <a href="#motocicletas" class="nav-link">Motocicletas</a>
-                <a href="#mantenimientos" class="nav-link">Mantenimientos</a>
-                <a href="#historial" class="nav-link">Historial</a>
-                <a href="#dashboard" class="nav-link highlight">Dashboard</a>
+                <a href="#" class="nav-link active" id="nav-inicio">Inicio</a>
+                <a href="#" class="nav-link" id="nav-login">Login</a>
+                <a href="#" class="nav-link" id="nav-motos">Motocicletas</a>
+                <a href="#" class="nav-link" id="nav-mantenimientos">Mantenimientos</a>
+                <a href="#" class="nav-link" id="nav-historial">Historial</a>
+                <a href="#" class="nav-link highlight" id="nav-dashboard">Dashboard</a>
             </nav>
         </div>
     </header>
 
-    <main class="hero-section">
+    <main class="hero-section" id="hero-view">
         <div class="hero-content">
             <h1 class="hero-title">Gestión Inteligente para Talleres de Motocicletas</h1>
             <p class="hero-description">
@@ -37,9 +36,108 @@
         </div>
     </main>
 
+    <div id="modal-login" class="modal-overlay">
+        <div class="modal-card">
+            <button class="modal-close" onclick="cerrarModales()">&times;</button>
+            <h2>Iniciar Sesión</h2>
+            <form id="form-login" class="app-form">
+                <div class="form-group">
+                    <label>Usuario / Correo</label>
+                    <input type="email" placeholder="ejemplo@correo.com" required>
+                </div>
+                <div class="form-group">
+                    <label>Contraseña</label>
+                    <input type="password" placeholder="••••••••" required>
+                </div>
+                <button type="submit" class="btn-primary full-width">Ingresar</button>
+            </form>
+        </div>
+    </div>
+
+    <div id="modal-motos" class="modal-overlay">
+        <div class="modal-card wide">
+            <button class="modal-close" onclick="cerrarModales()">&times;</button>
+            <h2>Gestión de Motocicletas</h2>
+            
+            <form id="form-moto" class="app-form horizontal">
+                <input type="text" id="moto-placa" placeholder="Placa (e.g. ABC12D)" required>
+                <input type="text" id="moto-marca" placeholder="Marca (e.g. Yamaha)" required>
+                <input type="text" id="moto-modelo" placeholder="Modelo / Cilindrada" required>
+                <button type="submit" class="btn-primary">Registrar Moto</button>
+            </form>
+
+            <div class="table-container">
+                <table class="app-table">
+                    <thead>
+                        <tr>
+                            <th>Placa</th>
+                            <th>Marca</th>
+                            <th>Modelo</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody id="lista-motos">
+                        <tr>
+                            <td colspan="4" class="text-center text-muted">No hay motocicletas registradas.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal-mantenimientos" class="modal-overlay">
+        <div class="modal-card">
+            <button class="modal-close" onclick="cerrarModales()">&times;</button>
+            <h2>Programar Mantenimiento</h2>
+            <form id="form-mantenimiento" class="app-form">
+                <div class="form-group">
+                    <label>Seleccionar Moto (Placa)</label>
+                    <select id="select-moto-mantenimiento" required>
+                        <option value="">-- Seleccione una placa --</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Tipo de Servicio</label>
+                    <input type="text" id="mant-servicio" placeholder="Ej. Cambio de aceite, Frenos" required>
+                </div>
+                <div class="form-group">
+                    <label>Fecha Programada</label>
+                    <input type="date" id="mant-fecha" required>
+                </div>
+                <button type="submit" class="btn-primary full-width">Asignar Orden</button>
+            </form>
+        </div>
+    </div>
+
+    <div id="modal-historial" class="modal-overlay">
+        <div class="modal-card wide">
+            <button class="modal-close" onclick="cerrarModales()">&times;</button>
+            <h2>Historial de Servicios</h2>
+            <div class="table-container">
+                <table class="app-table">
+                    <thead>
+                        <tr>
+                            <th>Fecha</th>
+                            <th>Placa</th>
+                            <th>Servicio</th>
+                            <th>Estado</th>
+                        </tr>
+                    </thead>
+                    <tbody id="lista-historial">
+                        <tr>
+                            <td colspan="4" class="text-center text-muted">No hay mantenimientos registrados aún.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
     <footer class="main-footer">
         <p>&copy; 2026 RideManager. Todos los derechos reservados.</p>
     </footer>
 
+    <script src="script.js"></script>
 </body>
 </html>
